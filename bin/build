@@ -1,0 +1,7 @@
+set -euxo pipefail
+
+cargo clippy -- -D warnings
+cargo test
+cargo mutants -j16 --shuffle -v -V
+cargo build
+
